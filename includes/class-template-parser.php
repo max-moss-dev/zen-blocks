@@ -101,7 +101,6 @@ class Template_Parser
                 'metadata' => $this->_block_metadata
             );
         } catch (\Exception $e) {
-            error_log("Zen Blocks template parse error: " . $e->getMessage());
             return [
                 'attributes' => [],
                 'metadata' => ['error' => $e->getMessage()]
@@ -361,7 +360,6 @@ class Template_Parser
             $html = $dom->saveHTML();
             return html_entity_decode($html, ENT_QUOTES | ENT_HTML5, 'UTF-8');
         } catch (\Exception $e) {
-            error_log('Template render error: ' . $e->getMessage());
             return '';
         }
     }
@@ -387,7 +385,6 @@ class Template_Parser
             include $template_path;
             return ob_get_clean();
         } catch (\Exception $e) {
-            error_log('Template preview error: ' . $e->getMessage());
             return '';
         }
     }

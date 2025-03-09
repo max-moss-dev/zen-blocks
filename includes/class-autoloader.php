@@ -33,17 +33,6 @@ class Autoloader
             ZENB_PLUGIN_DIR . 'includes/field-types',
             ZENB_PLUGIN_DIR . 'includes/admin'
         ];
-
-        if (ZENB_DEBUG) {
-            foreach ($dirs as $dir) {
-                if (!file_exists($dir)) {
-                    if (!mkdir($dir, 0755, true)) {
-                        error_log("ZENB Autoloader: Failed to create directory - {$dir}");
-                    }
-                }
-            }
-        }
-
         
         spl_autoload_register([$this, 'autoload']);
     }
@@ -64,7 +53,6 @@ class Autoloader
         $file = $this->_getClassPath($class);
 
         if (!file_exists($file)) {
-            error_log("ZENB Autoloader: File not found - {$file}");
             return;
         }
 
@@ -72,12 +60,10 @@ class Autoloader
             require_once $file;
 
             if (!class_exists($class, false)) {
-                error_log("ZENB Autoloader: Class {$class} not found in file {$file}");
                 return;
             }
 
         } catch (\Exception $e) {
-            error_log("ZENB Autoloader: Error loading class {$class}: " . $e->getMessage());
         }
     }
 

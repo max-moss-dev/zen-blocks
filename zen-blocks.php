@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Zen Blocks
  * Description: Create Gutenberg blocks easily
- * Version: 0.1
+ * Version: 1.0.0
  * Author: Max Moss
  * License: GPL v2 or later
  * Text Domain: zen-blocks

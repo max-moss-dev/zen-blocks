@@ -328,7 +328,6 @@ class Block_Registrar
         try {
             return $this->_templateParser->render($template_path, $formatted_attributes);
         } catch (\Exception $e) {
-            error_log('Error rendering block: ' . $e->getMessage());
             return '';
         }
     }
