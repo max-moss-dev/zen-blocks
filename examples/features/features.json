@@ -1,0 +1,46 @@
+{
+  "title": "Features Grid",
+  "description": "Features block with columns and image styles",
+  "icon": "columns",
+  "supports": {
+    "html": false,
+    "align": ["full"],
+    "anchor": true,
+    "customClassName": false,
+    "defaultAlign": "full"
+  },
+  "zenb": {
+    "controls": {
+      "columns": {
+        "type": "select",
+        "label": "Columns",
+        "default": "3",
+        "options": {
+          "2": "Two Columns",
+          "3": "Three Columns",
+          "4": "Four Columns"
+        }
+      },
+      "image_style": {
+        "type": "select",
+        "label": "Image Style",
+        "default": "circle",
+        "options": {
+          "square": "Square",
+          "rounded": "Rounded",
+          "circle": "Circle"
+        }
+      },
+      "spacing": {
+        "type": "select",
+        "label": "Spacing",
+        "default": "medium",
+        "options": {
+          "small": "Small",
+          "medium": "Medium",
+          "large": "Large"
+        }
+      }
+    }
+  }
+}

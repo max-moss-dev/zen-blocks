@@ -1,0 +1,19 @@
+@import 'variables';
+
+.zen-blocks-item-actions {
+    display: flex;
+    gap: 3px;
+
+    .components-button {
+        box-shadow: none !important;
+        
+        &:hover:not(:disabled) {
+            color: var(--zen-primary);
+        }
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+}

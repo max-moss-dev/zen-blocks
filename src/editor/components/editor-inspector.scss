@@ -1,0 +1,14 @@
+.zen-blocks {
+    &-image {
+        &-control {
+            margin-bottom: 16px;
+        }
+
+        &-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+    }
+
+}

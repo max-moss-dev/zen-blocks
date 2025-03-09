@@ -1,0 +1,13 @@
+// WordPress Admin Theme Variables
+:root {
+    --wp-admin-theme-color: #007cba;
+    --wp-components-color-accent-darker-10: #006ba1;
+    --wp-components-color-accent-darker-20: #005a87;
+    --zen-primary: var(--wp-admin-theme-color);
+    --zen-border: #dcdcde;
+    --zen-text: #1e1e1e;
+    --zen-text-light: #646970;
+    --zen-bg: #f0f0f1;
+    --zen-bg-light: #f6f7f7;
+    --zen-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}

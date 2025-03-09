@@ -1,0 +1,50 @@
+@import 'variables';
+
+.zen-blocks-control-type {
+    &-label {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 3px;
+        color: var(--zen-text);
+    }
+
+    &-description {
+        font-size: 13px;
+        line-height: 1.4;
+        color: var(--zen-text-light);
+    }
+    
+    &-actions {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    &-modal {
+        width: 700px;
+
+        .components-radio-control {
+            &__option {
+                border: var(--zen-border) solid 1px;
+                background: #fff;
+                padding: 15px;
+                margin-bottom: 5px;
+                transition: none;
+                border-radius: 4px;
+                cursor: pointer;
+        
+                &:hover {
+                    background: var(--zen-bg-light);
+                }
+            }
+
+            &__group-wrapper {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+        }
+    }
+
+}

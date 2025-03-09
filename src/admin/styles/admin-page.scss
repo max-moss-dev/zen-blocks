@@ -1,0 +1,34 @@
+@import 'variables';
+
+.zen-blocks-admin {
+    td {
+        vertical-align: middle;
+    }
+
+    &-header {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .components-notice {
+        margin: 20px 0;
+    }
+
+    &-block {
+        &-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        &-badge {
+            background: #c0c1c2;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            line-height: 1.4;
+            margin-left: 10px;
+        }
+    }
+
+}

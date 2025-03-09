@@ -1,0 +1,151 @@
+.zen-repeater > .zen-repeater-item:not(.image-wrapper) {
+    outline: 1px dashed #ddd;
+    position: relative;
+    outline-offset: 2px;
+
+    &:focus,
+    &.is-selected {
+        outline: 2px solid #007cba;
+    }
+}
+
+.zen-repeater-add {
+    border: 2px dashed #ddd !important;
+    background: transparent !important;
+    color: #1e1e1e !important;
+    padding: 12px !important;
+    transition: all 0.2s ease;
+    justify-content: center !important;
+    min-height: 40px;
+    gap: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+        border-color: #007cba !important;
+        color: #007cba !important;
+        background: rgba(0, 124, 186, 0.04) !important;
+    }
+
+    .dashicon {
+        font-size: 14px;
+        width: 14px;
+        height: 14px;
+    }
+}
+
+.zen-repeater-add-sidebar {
+    color: #333 !important;
+    border-color: #333 !important;
+    padding: 6px 12px !important;
+    width: 100%;
+    margin-top: 8px;
+    justify-content: center !important;
+    box-shadow: none !important;
+    height: 36px;
+    border-radius: 2px;
+    border: 1px dashed #949494;
+    background: transparent;
+    transition: all 0.1s ease;
+
+    &:hover {
+        border-color: var(--wp-admin-theme-color);
+        color: var(--wp-admin-theme-color);
+        background: rgba(0, 124, 186, 0.04);
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.zen-repeater-item-remove {
+    padding: 0 8px !important;
+    height: 36px !important;
+    border: none !important;
+    transition: opacity 0.2s ease;
+    display: none;
+
+    &:hover {
+        background-color: #cc1818 !important;
+        color: #fff !important;
+    }
+
+    svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+}
+
+.zen-repeater-item-wrapper {
+    position: relative;
+    margin-bottom: 4px;
+
+    // Navigation-like item style
+    .zen-repeater-item-preview {
+        width: 100%;
+        min-height: 40px;
+        padding: 6px 12px !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        border-radius: 2px;
+        border: 1px solid #e0e0e0;
+        background: #fff;
+        transition: all 0.1s ease;
+        cursor: pointer;
+        font-size: 13px;
+
+        &-text {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &:hover {
+            border-color: #949494;
+        }
+
+        &.is-selected {
+            border-color: var(--wp-admin-theme-color);
+            box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
+            z-index: 1;
+        }
+        
+        // Actions menu
+        .zen-repeater-item-actions {
+            display: flex;
+            gap: 4px;
+            opacity: 0;
+            transition: opacity 0.1s ease;
+    
+            .components-button {
+                padding: 0 !important;
+                min-width: 24px;
+                height: 24px;
+    
+                svg {
+                    width: 16px;
+                    height: 16px;
+                }
+    
+                &.nav-button {
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    
+        &:hover .zen-repeater-item-actions,
+        &.is-selected .zen-repeater-item-actions,
+        &:focus-within .zen-repeater-item-actions {
+            opacity: 1;
+        }
+    }
+
+}

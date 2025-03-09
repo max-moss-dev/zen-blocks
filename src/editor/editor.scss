@@ -1,0 +1,54 @@
+.wp-block[data-type^="zen-blocks/"] {
+    > div:not(.wp-block),
+    > section {
+        border: 1px dashed #ddd;
+    }
+
+    div {
+        box-sizing: border-box;
+    }
+
+    [zen-edit] {
+        position: relative;
+        min-height: 20px;
+        
+        &:hover {
+            outline: 1px dashed #007cba;
+        }
+
+        &[contenteditable="true"] {
+            cursor: text;
+            outline: none;
+            
+            &:focus {
+                outline: 2px solid #007cba;
+                outline-offset: 1px;
+            }
+        }
+    }
+
+
+    .zen-block-loading {
+        padding: 20px;
+        text-align: center;
+        background: #f0f0f0;
+        border: 1px dashed #ccc;
+    }
+
+    .zen-block-error {
+        padding: 20px;
+        text-align: center;
+        background: #fee;
+        border: 1px dashed #c00;
+        color: #c00;
+    }
+
+    .zen-field-type-error {
+        padding: 8px;
+        text-align: center;
+        border: 1px dashed #c00;
+        color: #c00;
+        background-color: #fee;
+        font-size: 12px;
+    }
+}

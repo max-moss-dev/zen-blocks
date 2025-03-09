@@ -1,0 +1,51 @@
+
+.zen-blocks-tab {
+    &-panel {
+        background: white;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    &-content {
+        padding: 20px;
+    }
+
+    &.is-active {
+        color: var(--wp-admin-theme-color);
+        border-bottom-color: var(--wp-admin-theme-color);
+        font-weight: 500;
+    }
+
+    &-content {
+        padding: 20px;
+    }
+
+    &-panel {
+        .zen-blocks-tab {
+            padding: 8px 20px;
+            margin: 0;
+            font-size: 14px;
+            line-height: 2;
+            color: var(--zen-text-light);
+    
+            &:hover {
+                color: var(--zen-text);
+            }
+    
+            &.is-active {
+                color: var(--zen-primary);
+                font-weight: 500;
+    
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 2px;
+                    background: var(--zen-primary);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+{
+    "title": "Custom Card",
+    "description": "Example of custom card block",
+    "attributes": [],
+    "icon": "layout",
+    "category": "widgets",
+    "supports": [],
+    "zenb": {
+        "controls": {
+            "layout": {
+                "type": "select",
+                "label": "Layout Style",
+                "default": "stacked",
+                "options": [
+                    {
+                        "key": "stacked",
+                        "value": "Stacked"
+                    },
+                    {
+                        "key": "horizontal",
+                        "value": "Horizontal stack"
+                    }
+                ]
+            },
+            "show_image": {
+                "type": "toggle",
+                "label": "Show Image",
+                "default": true
+            },
+            "background_color": {
+                "type": "select",
+                "label": "Background Color",
+                "default": "white",
+                "options": [
+                    {"key": "white", "value": "White"},
+                    {"key": "light", "value": "Light Gray"},
+                    {"key": "dark", "value": "Dark"}
+                ]
+            },
+            "button_style": {
+                "type": "select",
+                "label": "Button Style",
+                "default": "primary",
+                "options": [
+                    {"key": "primary", "value": "Primary"},
+                    {"key": "secondary", "value": "Secondary"},
+                    {"key": "outline", "value": "Outline"}
+                ]
+            },
+            "show_button": {
+                "type": "toggle",
+                "label": "Show Button",
+                "default": true
+            },
+            "image_style": {
+                "type": "select",
+                "label": "Image style",
+                "default": "square",
+                "options": [
+                    {"key": "square", "value": "Square"},
+                    {"key": "circle", "value": "Circle"}
+                ]
+            }
+        }
+    }
+}
