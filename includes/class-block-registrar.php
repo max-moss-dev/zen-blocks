@@ -10,11 +10,9 @@ namespace ZENB;
 
 use function add_action;
 use function register_block_type;
-use function plugin_dir_path;
 use function plugins_url;
 use function wp_register_script;
 use function wp_register_style;
-use function wp_localize_script;
 use function get_template_directory;
 use function get_template_directory_uri;
 use function apply_filters;
@@ -185,7 +183,7 @@ class Block_Registrar
                     'example' => $block_metadata['example'] ?? null,
                 ]);
             }
-            
+
             register_block_type('zen-blocks/' . $template_name, $block_args);
         }
     }
