@@ -40,10 +40,6 @@ class Template_Parser
      */
     public function parse($template_path)
     {
-        if (!\file_exists($template_path)) {
-            throw new \Exception("Template file not found: $template_path");
-        }
-        
         try {
             $this->_loadTemplate($template_path);
 

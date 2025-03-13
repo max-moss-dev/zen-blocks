@@ -311,8 +311,8 @@ class Blocks_API {
             return;
         }
 
-        $template_name = $_POST['template'] ?? '';
-        $attributes = json_decode(stripslashes($_POST['attributes'] ?? '{}'), true) ?? [];
+        $template_name = wp_unslash($_POST['template'] ?? '');
+        $attributes = json_decode(stripslashes(wp_unslash($_POST['attributes'] ?? '{}')), true) ?? [];
 
         $block_paths = apply_filters('zenb_block_paths', [
             get_template_directory() . '/zen-blocks'
@@ -455,7 +455,6 @@ class Blocks_API {
         }
 
         $settings = $request->get_json_params();
-        error_log('Settings: ' . print_r($request, true));
         if (!$settings) {
             return new WP_Error(
                 'zen_blocks_invalid_json',

@@ -831,8 +831,7 @@ function BlockSettings() {
               }
               return acc;
             }, {});
-            console.log(settings);
-            _context2.next = 15;
+            _context2.next = 14;
             return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
               path: "/zen-blocks/v1/blocks/".concat(blockName, "/settings"),
               method: 'POST',
@@ -843,7 +842,7 @@ function BlockSettings() {
                 })
               })
             });
-          case 15:
+          case 14:
             response = _context2.sent;
             if (response) {
               setIsDirty(false);
@@ -852,25 +851,25 @@ function BlockSettings() {
                 message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Settings saved successfully.', 'zen-blocks')
               });
             }
-            _context2.next = 23;
+            _context2.next = 22;
             break;
-          case 19:
-            _context2.prev = 19;
+          case 18:
+            _context2.prev = 18;
             _context2.t0 = _context2["catch"](10);
             console.error('Error saving block settings:', _context2.t0);
             setNotice({
               status: 'error',
               message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Failed to save settings.', 'zen-blocks')
             });
-          case 23:
-            _context2.prev = 23;
+          case 22:
+            _context2.prev = 22;
             setIsSaving(false);
-            return _context2.finish(23);
-          case 26:
+            return _context2.finish(22);
+          case 25:
           case "end":
             return _context2.stop();
         }
-      }, _callee2, null, [[10, 19, 23, 26]]);
+      }, _callee2, null, [[10, 18, 22, 25]]);
     }));
     return function handleSave() {
       return _ref4.apply(this, arguments);
