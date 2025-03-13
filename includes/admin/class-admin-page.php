@@ -99,7 +99,8 @@ class Admin_Page {
         // Pass configuration data to admin script
         wp_localize_script('zen-blocks-admin', 'zenBlocksConfig', [
             'registerExampleBlocks' => ZENB_REGISTER_EXAMPLE_BLOCKS,
-            'adminUI' => ZENB_ADMIN_UI
+            'adminUI' => ZENB_ADMIN_UI,
+            'blockEditNonce' => wp_create_nonce('zen_blocks_edit_block')
         ]);
 
         // Enqueue admin styles
@@ -137,9 +138,18 @@ class Admin_Page {
 
     /**
      * Render admin page
+     *
+     * @return void
      */
     public function render_admin_page(): void {
-        $block = isset($_GET['block']) ? sanitize_text_field($_GET['block']) : null;
+        // Verify nonce if block parameter is present
+        $block = null;
+        if (isset($_GET['block'])) {
+            if (isset($_GET['_wpnonce']) && wp_verify_nonce(sanitize_key(wp_unslash($_GET['_wpnonce'])), 'zen_blocks_edit_block')) {
+                $block = sanitize_text_field(wp_unslash($_GET['block']));
+            }
+        }
+        
         if ($block) {
             echo '<div id="zen-blocks-settings"></div>';
         } else {

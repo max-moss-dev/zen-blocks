@@ -162,7 +162,7 @@ class Block_Registrar
             // $attributes = $this->_registerAttributes($attributes, $template_data['metadata']);
             
             $block_args = [
-                'apiVersion' => 2,
+                'apiVersion' => 3,
                 // 'attributes' => $attributes,
                 'render_callback' => [$this, 'renderTemplateBlock'],
                 'editor_script' => 'zen-editor',

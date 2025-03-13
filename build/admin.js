@@ -484,7 +484,7 @@ function AdminPage() {
       className: "zen-blocks-admin-block-badge example"
     }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Example', 'zen-blocks'))), /*#__PURE__*/React.createElement("td", null, block.description || '-'), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
       variant: "secondary",
-      href: "admin.php?page=zen-blocks-settings&block=".concat(block.name)
+      href: "admin.php?page=zen-blocks-settings&block=".concat(block.name, "&_wpnonce=").concat(window.zenBlocksConfig.blockEditNonce)
     }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Configure', 'zen-blocks'))));
   }), blocks.length === 0 && /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
     colSpan: "3"
@@ -831,17 +831,19 @@ function BlockSettings() {
               }
               return acc;
             }, {});
-            _context2.next = 14;
+            console.log(settings);
+            _context2.next = 15;
             return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
               path: "/zen-blocks/v1/blocks/".concat(blockName, "/settings"),
               method: 'POST',
               data: _objectSpread(_objectSpread({}, settings), {}, {
+                supports: _objectSpread({}, settings.supports),
                 zenb: _objectSpread(_objectSpread({}, settings.zenb), {}, {
                   controls: controlsObject
                 })
               })
             });
-          case 14:
+          case 15:
             response = _context2.sent;
             if (response) {
               setIsDirty(false);
@@ -850,25 +852,25 @@ function BlockSettings() {
                 message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Settings saved successfully.', 'zen-blocks')
               });
             }
-            _context2.next = 22;
+            _context2.next = 23;
             break;
-          case 18:
-            _context2.prev = 18;
+          case 19:
+            _context2.prev = 19;
             _context2.t0 = _context2["catch"](10);
             console.error('Error saving block settings:', _context2.t0);
             setNotice({
               status: 'error',
               message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Failed to save settings.', 'zen-blocks')
             });
-          case 22:
-            _context2.prev = 22;
+          case 23:
+            _context2.prev = 23;
             setIsSaving(false);
-            return _context2.finish(22);
-          case 25:
+            return _context2.finish(23);
+          case 26:
           case "end":
             return _context2.stop();
         }
-      }, _callee2, null, [[10, 18, 22, 25]]);
+      }, _callee2, null, [[10, 19, 23, 26]]);
     }));
     return function handleSave() {
       return _ref4.apply(this, arguments);

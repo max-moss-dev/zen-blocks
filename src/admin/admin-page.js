@@ -128,7 +128,7 @@ export default function AdminPage() {
                                 <td>
                                     <Button
                                         variant="secondary"
-                                        href={`admin.php?page=zen-blocks-settings&block=${block.name}`}
+                                        href={`admin.php?page=zen-blocks-settings&block=${block.name}&_wpnonce=${window.zenBlocksConfig.blockEditNonce}`}
                                     >
                                         {__('Configure', 'zen-blocks')}
                                     </Button>

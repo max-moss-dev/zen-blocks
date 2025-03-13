@@ -266,11 +266,16 @@ export default function BlockSettings() {
                 return acc;
             }, {});
 
+            console.log(settings);
+
             const response = await apiFetch({
                 path: `/zen-blocks/v1/blocks/${blockName}/settings`,
                 method: 'POST',
                 data: {
                     ...settings,
+                    supports: {
+                        ...settings.supports,
+                    },
                     zenb: {
                         ...settings.zenb,
                         controls: controlsObject

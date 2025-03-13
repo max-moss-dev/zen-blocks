@@ -34,7 +34,7 @@ const BlockInspector = ({ block, attributes, setAttributes }) => {
                     >
                         <Button
                             variant="secondary"
-                            href={`admin.php?page=zen-blocks-settings&block=${block.name}`}
+                            href={`admin.php?page=zen-blocks-settings&block=${block.name}&_wpnonce=${window.zenBlocksConfig.blockEditNonce}`}
                             target="_blank"
                             style={{ width: '100%', justifyContent: 'center', marginBottom: '8px' }}
                             icon="admin-generic"

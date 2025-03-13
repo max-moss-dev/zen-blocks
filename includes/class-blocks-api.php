@@ -455,6 +455,7 @@ class Blocks_API {
         }
 
         $settings = $request->get_json_params();
+        error_log('Settings: ' . print_r($request, true));
         if (!$settings) {
             return new WP_Error(
                 'zen_blocks_invalid_json',

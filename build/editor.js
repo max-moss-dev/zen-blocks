@@ -1733,7 +1733,7 @@ var BlockInspector = function BlockInspector(_ref) {
     initialOpen: false
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
     variant: "secondary",
-    href: "admin.php?page=zen-blocks-settings&block=".concat(block.name),
+    href: "admin.php?page=zen-blocks-settings&block=".concat(block.name, "&_wpnonce=").concat(window.zenBlocksConfig.blockEditNonce),
     target: "_blank",
     style: {
       width: '100%',
