@@ -91,7 +91,9 @@ class Blocks_API {
         wp_localize_script('zen-editor', 'zenTemplateBlocks', $blocks);
         wp_localize_script('zen-editor', 'zenBlocksData', [
             'adminUI' => ZENB_ADMIN_UI,
-            'debugEnabled' => ZENB_DEBUG
+            'debugEnabled' => ZENB_DEBUG,
+            'previewNonce' => wp_create_nonce('zen_blocks_preview'),
+            'blockEditNonce' => wp_create_nonce('zen_blocks_edit_block')
         ]);
 
     }
@@ -306,13 +308,41 @@ class Blocks_API {
      * Handle preview request via admin-ajax
      */
     public function handle_preview_ajax(): void {
+        // Verify user capabilities
         if (!current_user_can('edit_posts')) {
             wp_send_json_error('Permission denied', 403);
             return;
         }
 
-        $template_name = wp_unslash($_POST['template'] ?? '');
-        $attributes = json_decode(stripslashes(wp_unslash($_POST['attributes'] ?? '{}')), true) ?? [];
+        // Verify nonce
+        if (!isset($_POST['previewNonce']) || !wp_verify_nonce(sanitize_key($_POST['previewNonce']), 'zen_blocks_preview')) {
+            wp_send_json_error('Security check failed', 403);
+            return;
+        }
+
+        // Sanitize template name
+        $template_name = isset($_POST['template']) ? sanitize_text_field(wp_unslash($_POST['template'])) : '';
+        if (empty($template_name)) {
+            wp_send_json_error('Template name is required', 400);
+            return;
+        }
+        
+        // Sanitize attributes - first get the raw JSON and sanitize it
+        $attributes_raw = isset($_POST['attributes']) ? sanitize_text_field(wp_unslash($_POST['attributes'])) : '{}';
+        
+        // Decode JSON
+        $attributes = json_decode(stripslashes($attributes_raw), true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            wp_send_json_error('Invalid JSON in attributes', 400);
+            return;
+        }
+        
+        // Sanitize attributes recursively
+        if (is_array($attributes)) {
+            $attributes = map_deep($attributes, 'sanitize_text_field');
+        } else {
+            $attributes = [];
+        }
 
         $block_paths = apply_filters('zenb_block_paths', [
             get_template_directory() . '/zen-blocks'

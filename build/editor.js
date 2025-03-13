@@ -1733,7 +1733,7 @@ var BlockInspector = function BlockInspector(_ref) {
     initialOpen: false
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
     variant: "secondary",
-    href: "admin.php?page=zen-blocks-settings&block=".concat(block.name, "&_wpnonce=").concat(window.zenBlocksConfig.blockEditNonce),
+    href: "admin.php?page=zen-blocks-settings&block=".concat(block.name, "&_wpnonce=").concat(window.zenBlocksData.blockEditNonce),
     target: "_blank",
     style: {
       width: '100%',
@@ -10355,6 +10355,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 // Get blocks data from window variable first
 var blocks = window.zenTemplateBlocks || [];
 var debugEnabled = window.zenBlocksData.debugEnabled;
+var previewNonce = window.zenBlocksData.previewNonce;
 (0,_formats__WEBPACK_IMPORTED_MODULE_12__.registerFormats)();
 
 // Register blocks immediately
@@ -10463,7 +10464,8 @@ blocks.forEach(function (block) {
                     body: new URLSearchParams({
                       action: 'zen_blocks_preview',
                       template: block.name,
-                      attributes: JSON.stringify(attributes)
+                      attributes: JSON.stringify(attributes),
+                      previewNonce: previewNonce
                     })
                   });
                 case 5:

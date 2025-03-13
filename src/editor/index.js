@@ -20,6 +20,7 @@ import './editor.scss';
 // Get blocks data from window variable first
 const blocks = window.zenTemplateBlocks || [];
 const debugEnabled = window.zenBlocksData.debugEnabled;
+const previewNonce = window.zenBlocksData.previewNonce;
 registerFormats();
 
 // Register blocks immediately
@@ -113,7 +114,8 @@ blocks.forEach(block => {
                                 body: new URLSearchParams({
                                     action: 'zen_blocks_preview',
                                     template: block.name,
-                                    attributes: JSON.stringify(attributes)
+                                    attributes: JSON.stringify(attributes),
+                                    previewNonce: previewNonce
                                 })
                             });
                             data = await response.json();
