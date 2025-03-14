@@ -34,7 +34,8 @@
                 "options": [
                     {"key": "white", "value": "White"},
                     {"key": "light", "value": "Light Gray"},
-                    {"key": "dark", "value": "Dark"}
+                    {"key": "dark", "value": "Dark"},
+                    {"key": "gradient-sunset", "value": "Gradient"}
                 ]
             },
             "button_style": {

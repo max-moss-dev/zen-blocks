@@ -23,6 +23,16 @@
     color: #fff;
 }
 
+/* Gradient Backgrounds */
+.custom-card.bg-gradient-sunset {
+    background: linear-gradient(135deg, #4d1f49, #3d1c33, #7a2c2c);
+    color: #fff;
+}
+
+.custom-card.bg-gradient-sunset h2 {
+    color: #fff;
+}
+
 /* Layout Styles */
 .custom-card.layout-stacked {
     display: flex;

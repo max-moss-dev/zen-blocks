@@ -4,6 +4,9 @@ $classes[] = 'layout-' . ($layout ?? 'stacked');
 $classes[] = 'bg-' . ($background_color ?? 'white');
 ?>
 <div class="<?php echo esc_attr(implode(' ', $classes)); ?>">
+    <?php if ($template->has_value('image') && $show_image):?>
+        <img zen-edit="image" zen-type="image" class="<?php echo $image_style; ?>">
+    <?php endif;?>
     <div class="content-wrapper">
         <h2 zen-edit="title">Custom Card Title</h2>
         <div zen-edit="content" zen-type="innerblocks">
