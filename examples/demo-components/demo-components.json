@@ -1,0 +1,56 @@
+{
+  "name": "zen-blocks/demo-components",
+  "title": "Demo Components",
+  "category": "zen-blocks",
+  "icon": "<svg viewBox='0 0 24 24'><path d='M4 4h16v16H4V4zm2 2v12h12V6H6z'/></svg>",
+  "description": "A comprehensive demo of all Zen Blocks editable components.",
+  "keywords": ["demo", "components", "zen", "showcase"],
+  "version": "1.0.0",
+  "supports": {
+    "html": true,
+    "align": ["wide", "full"],
+    "anchor": true,
+    "customClassName": true
+  },
+  "zenb": {
+    "controls": {
+      "layout": {
+        "type": "select",
+        "label": "Layout",
+        "default": "default",
+        "options": [
+          {
+            "key": "default",
+            "value": "Default Layout"
+          },
+          {
+            "key": "compact",
+            "value": "Compact Layout"
+          },
+          {
+            "key": "expanded",
+            "value": "Expanded Layout"
+          }
+        ]
+      },
+      "show_advanced": {
+        "type": "toggle",
+        "label": "Show Advanced Options",
+        "default": false
+      },
+      "background_color": {
+        "type": "color",
+        "label": "Background Color",
+        "default": "#f0f0f0"
+      },
+      "columns_count": {
+        "type": "range",
+        "label": "Columns Count",
+        "default": 3,
+        "min": 1,
+        "max": 6,
+        "step": 1
+      }
+    }
+  }
+}
